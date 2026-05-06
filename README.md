@@ -26,32 +26,169 @@ Phantom, MITRE ATT&CK çerçevesi, NVD/CVE zekası ve çok ajanlı otomasyon sis
 
 ### Gereksinimler
 
-- Python 3.10+
-- [nmap](https://nmap.org/download.html)
-- [Ollama](https://ollama.ai)
+| Bileşen | Sürüm | Açıklama |
+|---------|-------|----------|
+| Python | 3.10+ | Ana çalışma ortamı |
+| nmap | 7.80+ | Port tarama motoru |
+| Ollama | Güncel | Yerel LLM çalıştırıcı |
 
-### Adımlar
+---
+
+### macOS
 
 ```bash
-# 1. Klonla
-git clone https://github.com/kullanici/phantom
+# 1. Depoyu klonla
+git clone https://github.com/eyupccn44/phantom
 cd phantom
 
-# 2. Sanal ortam oluştur
+# 2. Python sürümünü kontrol et (3.10+ gerekli)
+python3 --version
+
+# 3. Sanal ortam oluştur ve aktifleştir
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 4. Bağımlılıkları yükle
+pip install -r requirements.txt
+
+# 5. nmap kur (Homebrew ile)
+brew install nmap
+
+# 6. Ollama kur
+#    https://ollama.ai/download adresinden .dmg indir ve yükle
+#    veya:
+brew install ollama
+
+# 7. Ollama'yı arka planda başlat
+ollama serve &
+
+# 8. LLM modelini indir (birini seç)
+ollama pull llama3          # Dengeli — önerilen başlangıç
+ollama pull mistral         # Hızlı ve hafif
+ollama pull deepseek-r1     # Daha derin akıl yürütme
+
+# 9. Çalıştır
+./run.sh --target 192.168.1.1
+```
+
+---
+
+### Linux (Ubuntu / Debian)
+
+```bash
+# 1. Sistem bağımlılıklarını kur
+sudo apt update && sudo apt install -y python3 python3-pip python3-venv nmap git curl
+
+# 2. Depoyu klonla
+git clone https://github.com/eyupccn44/phantom
+cd phantom
+
+# 3. Python sürümünü kontrol et
+python3 --version   # 3.10+ olmalı
+
+# Ubuntu 20.04 ise Python 3.10'u elle kur:
+# sudo apt install -y python3.10 python3.10-venv
+
+# 4. Sanal ortam oluştur ve aktifleştir
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 5. Bağımlılıkları yükle
+pip install -r requirements.txt
+
+# 6. Ollama kur
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# 7. Ollama servisini başlat
+ollama serve &
+
+# 8. LLM modelini indir
+ollama pull llama3
+
+# 9. run.sh'a çalıştırma izni ver ve başlat
+chmod +x run.sh
+./run.sh --target 192.168.1.1
+```
+
+---
+
+### Windows (WSL2 üzerinden)
+
+```powershell
+# 1. WSL2 + Ubuntu kur (PowerShell'i yönetici olarak aç)
+wsl --install -d Ubuntu
+```
+
+WSL Ubuntu terminalinde devam et:
+
+```bash
+# 2. Sistem paketlerini güncelle
+sudo apt update && sudo apt install -y python3 python3-pip python3-venv nmap git curl
+
+# 3. Depoyu klonla
+git clone https://github.com/eyupccn44/phantom
+cd phantom
+
+# 4. Sanal ortam oluştur
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# 3. nmap kur (macOS)
-brew install nmap
-
-# 4. Ollama kur ve model indir
-ollama serve
+# 5. Ollama kur
+curl -fsSL https://ollama.ai/install.sh | sh
+ollama serve &
 ollama pull llama3
 
-# 5. Çalıştır
+# 6. Çalıştır
 ./run.sh --target 192.168.1.1
 ```
+
+---
+
+### Telegram Bot Entegrasyonu (İsteğe Bağlı)
+
+Tarama sonuçlarını Telegram üzerinden almak için:
+
+1. [@BotFather](https://t.me/BotFather) ile yeni bir bot oluştur → token al
+2. Botuna bir mesaj gönder, ardından `https://api.telegram.org/bot<TOKEN>/getUpdates` adresinden `chat_id`'ni öğren
+3. Proje kök dizininde `telegram.json` dosyası oluştur:
+
+```json
+{
+  "token": "1234567890:ABCdef...",
+  "chat_id": "123456789"
+}
+```
+
+> `telegram.json` dosyası `.gitignore`'a eklidir, depoya gitmez.
+
+---
+
+### Kurulumu Doğrulama
+
+```bash
+# Ollama çalışıyor mu?
+curl http://localhost:11434/api/tags
+
+# Nmap erişilebilir mi?
+nmap --version
+
+# Phantom başlıyor mu?
+./run.sh --help
+```
+
+---
+
+### Sorun Giderme
+
+| Hata | Çözüm |
+|------|-------|
+| `Ollama bağlantısı başarısız` | `ollama serve` komutunu ayrı bir terminalde çalıştır |
+| `Ollama çalışıyor ama kurulu model yok` | `ollama pull llama3` ile model indir |
+| `nmap: command not found` | macOS: `brew install nmap` — Linux: `sudo apt install nmap` |
+| `Permission denied: run.sh` | `chmod +x run.sh` ile çalıştırma izni ver |
+| `ModuleNotFoundError` | `source .venv/bin/activate` ile sanal ortamı aktifleştir, sonra `pip install -r requirements.txt` |
+| Python sürümü düşük | `python3.10 -m venv .venv` ile Python 3.10+ sanal ortam oluştur |
 
 ---
 
