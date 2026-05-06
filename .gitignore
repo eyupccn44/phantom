@@ -1,0 +1,38 @@
+# Sensitive
+telegram.json
+.env
+
+# Sessions & Reports (auto-generated)
+sessions/*.json
+reports/*.html
+reports/*.md
+
+# Cache
+.cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
