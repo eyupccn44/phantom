@@ -145,25 +145,6 @@ ollama pull llama3
 
 ---
 
-### Telegram Bot Entegrasyonu (İsteğe Bağlı)
-
-Tarama sonuçlarını Telegram üzerinden almak için:
-
-1. [@BotFather](https://t.me/BotFather) ile yeni bir bot oluştur → token al
-2. Botuna bir mesaj gönder, ardından `https://api.telegram.org/bot<TOKEN>/getUpdates` adresinden `chat_id`'ni öğren
-3. Proje kök dizininde `telegram.json` dosyası oluştur:
-
-```json
-{
-  "token": "1234567890:ABCdef...",
-  "chat_id": "123456789"
-}
-```
-
-> `telegram.json` dosyası `.gitignore`'a eklidir, depoya gitmez.
-
----
-
 ### Kurulumu Doğrulama
 
 ```bash
