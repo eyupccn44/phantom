@@ -8,3 +8,4 @@ __pycache__/
 *.pyo
 .DS_Store
 *.json.bak
+nikto_http_*.json
