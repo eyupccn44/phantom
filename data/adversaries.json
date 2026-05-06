@@ -1,0 +1,93 @@
+{
+  "APT29": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "NOBELIUM", "The Dukes", "Midnight Blizzard"],
+    "origin": "Rusya (SVR)",
+    "targets": ["Hükümet", "Think Tank", "Sağlık", "Enerji", "Teknoloji"],
+    "ttps": ["T1566.001", "T1078", "T1021.004", "T1059.001", "T1041", "T1552", "T1190"],
+    "tools": ["Cobalt Strike", "SUNBURST", "MiniDuke", "PowerDuke", "WellMess"],
+    "opsec": "STEALTHY",
+    "description": "Rusya SVR bağlantılı, uzun süreli gizli casusluk operasyonları. SolarWinds saldırısını gerçekleştirdi.",
+    "preferred_initial_access": ["T1566.001", "T1078", "T1190"],
+    "preferred_persistence": ["T1505.003", "T1078"],
+    "preferred_exfil": ["T1041", "T1048"]
+  },
+  "APT28": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Sofacy", "Pawn Storm", "Forest Blizzard"],
+    "origin": "Rusya (GRU)",
+    "targets": ["NATO üyeleri", "Hükümet", "Medya", "Askeri", "Spor organizasyonları"],
+    "ttps": ["T1595", "T1190", "T1110.003", "T1059.001", "T1046", "T1021.002"],
+    "tools": ["X-Agent", "X-Tunnel", "Sofacy", "Zebrocy", "Komplex"],
+    "opsec": "MODERATE",
+    "description": "Rusya GRU bağlantılı, agresif saldırı grubu. DNC hack, Olimpik saldırılar.",
+    "preferred_initial_access": ["T1190", "T1566", "T1110.003"],
+    "preferred_persistence": ["T1078", "T1059"],
+    "preferred_exfil": ["T1041", "T1048"]
+  },
+  "Lazarus": {
+    "name": "Lazarus Group",
+    "aliases": ["Hidden Cobra", "Guardians of Peace", "Zinc"],
+    "origin": "Kuzey Kore (RGB)",
+    "targets": ["Finans", "Kripto", "Savunma", "Medya", "Sağlık"],
+    "ttps": ["T1566.001", "T1190", "T1059.004", "T1068", "T1041", "T1486"],
+    "tools": ["BLINDINGCAN", "HOPLIGHT", "Manuscrypt", "ThreatNeedle"],
+    "opsec": "MODERATE",
+    "description": "Kuzey Kore devlet destekli grup. Finansal kazanç + casusluk. SWIFT saldırıları, WannaCry.",
+    "preferred_initial_access": ["T1566.001", "T1190"],
+    "preferred_persistence": ["T1505.003", "T1059"],
+    "preferred_exfil": ["T1041", "T1486"]
+  },
+  "FIN7": {
+    "name": "FIN7",
+    "aliases": ["Carbanak", "Navigator Group", "ITG14"],
+    "origin": "Rusya (siber suç)",
+    "targets": ["Perakende", "Restoran", "Otelcilik", "Finans"],
+    "ttps": ["T1566.001", "T1059.001", "T1055", "T1021.002", "T1552", "T1041"],
+    "tools": ["Carbanak", "BATELEUR", "GRIFFON", "SQLRat"],
+    "opsec": "MODERATE",
+    "description": "Finansal amaçlı Rus siber suç grubu. POS sistemleri ve banka kartı hırsızlığı.",
+    "preferred_initial_access": ["T1566.001", "T1078"],
+    "preferred_persistence": ["T1059.001", "T1505"],
+    "preferred_exfil": ["T1041"]
+  },
+  "Scattered Spider": {
+    "name": "Scattered Spider",
+    "aliases": ["UNC3944", "Muddled Libra", "0ktapus"],
+    "origin": "İngiltere/ABD (genç İngilizce konuşan aktörler)",
+    "targets": ["Teknoloji", "Telecom", "Casino", "BPO", "Cloud altyapısı"],
+    "ttps": ["T1566", "T1078", "T1110.003", "T1133", "T1219", "T1552"],
+    "tools": ["AnyDesk", "TeamViewer", "Cobalt Strike", "AISURU"],
+    "opsec": "STEALTHY",
+    "description": "Sosyal mühendislik ustası genç hacker grubu. MGM, Caesars saldırıları. SIM swap, help desk vishing.",
+    "preferred_initial_access": ["T1566", "T1078", "T1133"],
+    "preferred_persistence": ["T1219", "T1078"],
+    "preferred_exfil": ["T1041"]
+  },
+  "Volt Typhoon": {
+    "name": "Volt Typhoon",
+    "aliases": ["BRONZE SILHOUETTE", "Vanguard Panda"],
+    "origin": "Çin (PLA/MSS)",
+    "targets": ["Kritik altyapı", "Enerji", "Ulaşım", "Su", "Telecom"],
+    "ttps": ["T1190", "T1505.003", "T1083", "T1046", "T1021.004", "T1048"],
+    "tools": ["LoLBins", "Impacket", "Fast Reverse Proxy", "Netsh"],
+    "opsec": "STEALTHY",
+    "description": "Çin bağlantılı, kritik altyapıya odaklanan APT. Living-off-the-land teknikler kullanır.",
+    "preferred_initial_access": ["T1190", "T1133"],
+    "preferred_persistence": ["T1505.003"],
+    "preferred_exfil": ["T1048"]
+  },
+  "APT41": {
+    "name": "APT41",
+    "aliases": ["Double Dragon", "Barium", "Winnti", "Earth Baku"],
+    "origin": "Çin (MSS)",
+    "targets": ["Sağlık", "Telecom", "Teknoloji", "Oyun", "Finans"],
+    "ttps": ["T1190", "T1078", "T1059.006", "T1068", "T1505.003", "T1041"],
+    "tools": ["Crosswalk", "MESSAGETAP", "PlugX", "ShadowPad", "Cobalt Strike"],
+    "opsec": "MODERATE",
+    "description": "Çin MSS bağlantılı çift amaçlı grup — hem devlet casusuluğu hem finansal kazanç.",
+    "preferred_initial_access": ["T1190", "T1078"],
+    "preferred_persistence": ["T1505.003", "T1068"],
+    "preferred_exfil": ["T1041"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "redis":         [{"user": "", "pass": "", "note": "no-auth default"}],
+  "mongodb":       [{"user": "", "pass": "", "note": "no-auth default"}, {"user": "admin", "pass": "admin"}, {"user": "root", "pass": "root"}],
+  "mysql":         [{"user": "root", "pass": ""}, {"user": "root", "pass": "root"}, {"user": "root", "pass": "mysql"}, {"user": "root", "pass": "toor"}, {"user": "admin", "pass": "admin"}],
+  "mariadb":       [{"user": "root", "pass": ""}, {"user": "root", "pass": "root"}, {"user": "root", "pass": "mariadb"}],
+  "postgresql":    [{"user": "postgres", "pass": ""}, {"user": "postgres", "pass": "postgres"}, {"user": "postgres", "pass": "password"}, {"user": "admin", "pass": "admin"}],
+  "tomcat":        [{"user": "admin", "pass": "admin"}, {"user": "tomcat", "pass": "tomcat"}, {"user": "admin", "pass": "password"}, {"user": "manager", "pass": "manager"}, {"user": "role1", "pass": "role1"}, {"user": "both", "pass": "tomcat"}],
+  "jenkins":       [{"user": "admin", "pass": "admin"}, {"user": "admin", "pass": "password"}, {"user": "jenkins", "pass": "jenkins"}, {"user": "admin", "pass": "1234"}],
+  "elasticsearch": [{"user": "elastic", "pass": "changeme"}, {"user": "elastic", "pass": "elastic"}, {"user": "", "pass": "", "note": "no-auth in older versions"}],
+  "ssh":           [{"user": "root", "pass": "root"}, {"user": "root", "pass": "toor"}, {"user": "root", "pass": "password"}, {"user": "root", "pass": "1234"}, {"user": "admin", "pass": "admin"}, {"user": "ubuntu", "pass": "ubuntu"}, {"user": "pi", "pass": "raspberry"}, {"user": "vagrant", "pass": "vagrant"}, {"user": "ec2-user", "pass": "ec2-user"}],
+  "ftp":           [{"user": "anonymous", "pass": ""}, {"user": "ftp", "pass": "ftp"}, {"user": "admin", "pass": "admin"}, {"user": "root", "pass": "root"}],
+  "vnc":           [{"user": "", "pass": ""}, {"user": "", "pass": "admin"}, {"user": "", "pass": "password"}, {"user": "", "pass": "1234"}, {"user": "", "pass": "vncpassword"}],
+  "rdp":           [{"user": "administrator", "pass": "administrator"}, {"user": "administrator", "pass": "password"}, {"user": "administrator", "pass": "P@ssw0rd"}, {"user": "admin", "pass": "admin"}],
+  "smb":           [{"user": "administrator", "pass": ""}, {"user": "administrator", "pass": "administrator"}, {"user": "guest", "pass": ""}, {"user": "admin", "pass": "admin"}],
+  "winrm":         [{"user": "administrator", "pass": "administrator"}, {"user": "administrator", "pass": "password"}, {"user": "admin", "pass": "admin"}],
+  "http":          [{"user": "admin", "pass": "admin"}, {"user": "admin", "pass": "password"}, {"user": "admin", "pass": "1234"}, {"user": "administrator", "pass": "administrator"}, {"user": "root", "pass": "root"}],
+  "jboss":         [{"user": "admin", "pass": "admin"}, {"user": "admin", "pass": ""}, {"user": "jboss", "pass": "jboss"}],
+  "weblogic":      [{"user": "weblogic", "pass": "weblogic"}, {"user": "weblogic", "pass": "weblogic1"}, {"user": "weblogic", "pass": "Welcome1"}, {"user": "system", "pass": "weblogic"}]
+}

@@ -1,0 +1,10 @@
+telegram.json
+sessions/
+reports/
+intel/
+__pycache__/
+.venv/
+*.pyc
+*.pyo
+.DS_Store
+*.json.bak
